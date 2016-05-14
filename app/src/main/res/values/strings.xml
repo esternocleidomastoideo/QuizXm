@@ -26,11 +26,25 @@
     <string name="question4_r3">Managed2 has applications deployed to it</string>
     <string name="question4_r4">The Node Manager for machine2 is configured and running.</string>
 
+    <string name="question5">5.An EJB application is targeted to a cluster. Remote EJB clients can therefore take
+advantage of WebLogic Server’s load balancing and failover capabilities.
+However, a proxy server exists between the clients and the cluster, which performs IP
+address translation. Which cluster attribute should you modify to ensure that load
+balancing and failover work correctly?</string>
+    <string name="question5_r1">Multicast Address</string>
+    <string name="question5_r2">Persistent Store</string>
+    <string name="question5_r3">Cluster Address</string>
+    <string name="question5_r4">Migration Basis</string>
+
     <string name="title_activity_activity_main">QuizXm 1Z0-102</string>
     <string name="title_activity_screen2">QuizXm 1Z0-102</string>
     <string name="title_activity_screen3">QuizXm 1Z0-102</string>
     <string name="title_activity_screen4">QuizXm 1Z0-102</string>
+    <string name="title_activity_screen5">QuizXm 1Z0-102</string>
+
     <string name="buttonNexgt1">Next</string>
     <string name="buttonNext">Next</string>
     <string name="buttonNext4">Next</string>
+    <string name="buttonNext5">Next</string>
+
 </resources>
