@@ -33,7 +33,11 @@
         <activity
             android:name=".Screen5"
             android:label="@string/title_activity_screen5"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Screen6"
+            android:label="@string/title_activity_screen6"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

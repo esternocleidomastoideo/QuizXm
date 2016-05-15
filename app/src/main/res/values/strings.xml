@@ -36,6 +36,12 @@ balancing and failover work correctly?</string>
     <string name="question5_r3">Cluster Address</string>
     <string name="question5_r4">Migration Basis</string>
 
+    <string name="question6">6.You run the default start manage Weblogic (.cmd in Windows) script as shown here: startmanageWeblogic.sh server1 http://192.168.1.102:8001. What does this do?</string>
+    <string name="question6_r1">It starts the administration server named server1, which is running at 192.168.1.102.8001</string>
+    <string name="question6_r2">It starts the managed server named server1, which is running at 192.168.1.102.8001</string>
+    <string name="question6_r3">It starts the managed server named server1 whose Node Manager is running at 192.168.1.102.8001</string>
+    <string name="question6_r4">It starts the Managed Server named server1 whose Administration Server is running at 192.168.1.102:8001.</string>
+
     <string name="title_activity_activity_main">QuizXm 1Z0-102</string>
     <string name="title_activity_screen2">QuizXm 1Z0-102</string>
     <string name="title_activity_screen3">QuizXm 1Z0-102</string>
@@ -46,5 +52,7 @@ balancing and failover work correctly?</string>
     <string name="buttonNext">Next</string>
     <string name="buttonNext4">Next</string>
     <string name="buttonNext5">Next</string>
+    <string name="buttonNext6">Next</string>
+    <string name="title_activity_screen6">QuizXm 1Z0-102</string>
 
 </resources>
