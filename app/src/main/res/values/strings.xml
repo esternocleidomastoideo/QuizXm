@@ -1,5 +1,5 @@
 <resources>
-    <string name="buttonNext1">Next</string>
+
     <string name="app_name">QuizXm 1Z0-102</string>
     <string name="action_settings">Settings</string>
     <string name="question1">1. Which of these two are the part of WEB-INF in typical web applications:</string>
@@ -47,12 +47,7 @@ balancing and failover work correctly?</string>
     <string name="title_activity_screen3">QuizXm 1Z0-102</string>
     <string name="title_activity_screen4">QuizXm 1Z0-102</string>
     <string name="title_activity_screen5">QuizXm 1Z0-102</string>
-
-    <string name="buttonNexgt1">Next</string>
-    <string name="buttonNext">Next</string>
-    <string name="buttonNext4">Next</string>
-    <string name="buttonNext5">Next</string>
-    <string name="buttonNext6">Next</string>
     <string name="title_activity_screen6">QuizXm 1Z0-102</string>
+
 
 </resources>

@@ -24,8 +24,6 @@ public class Screen6 extends AppCompatActivity implements View.OnClickListener, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen6);
         Bundle bundle = getIntent().getExtras();
-        Button botaoNext6 = (Button)findViewById(R.id.ButtonNext6);
-        botaoNext6.setOnClickListener(this);
         this.detector = new GestureDetector(this);
 
         final Switch switch1 = (Switch)findViewById(R.id.switch1);
