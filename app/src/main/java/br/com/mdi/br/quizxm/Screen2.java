@@ -6,28 +6,26 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 
-public class Screen2 extends AppCompatActivity implements View.OnClickListener{
+public class Screen2 extends AppCompatActivity implements GestureDetector.OnGestureListener{
 
-
+    private GestureDetector detector;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen2);
         Bundle bundle = getIntent().getExtras();
+        this.detector = new GestureDetector(this);
 
-        Button botaoNext2 = (Button)findViewById(R.id.ButtonNext2);
-        botaoNext2.setOnClickListener(this);
-        final int verde = (int)R.style.QuizXm;
         final Switch switch1 = (Switch)findViewById(R.id.switch1);
         final Switch switch2 = (Switch)findViewById(R.id.switch2);
         final Switch switch3 = (Switch)findViewById(R.id.switch3);
         final Switch switch4 = (Switch)findViewById(R.id.switch4);
-
-
 
 
         switch1.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +87,51 @@ public class Screen2 extends AppCompatActivity implements View.OnClickListener{
 
 
     @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(this,Screen3.class);
-        startActivity(intent);
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        if(this.detector.onTouchEvent(event)){
+            return true;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
+        if(Math.abs(e1.getY()-e2.getY())>250){
+            return false;
+        }
+
+
+        if(e1.getX()-e2.getX()>100 && Math.abs(velocityX)>200){
+
+            Intent intent = new Intent(this,Screen3.class);
+            startActivity(intent);
+        }
+        return false;
     }
 }

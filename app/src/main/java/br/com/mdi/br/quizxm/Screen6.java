@@ -19,6 +19,7 @@ public class Screen6 extends AppCompatActivity implements View.OnClickListener, 
 
     private GestureDetector detector;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen6);
@@ -137,11 +138,11 @@ public class Screen6 extends AppCompatActivity implements View.OnClickListener, 
             return false;
         }
         if(e1.getX()-e2.getX()>100 && Math.abs(velocityX)>200){
-            Log.i("TESTANDO","########## TESTANDO ###########");
-        }else if(e1.getX() -e2.getX()>100&&Math.abs(velocityX)>200){
-            Log.i("SWIP ATIVADO","WooooooHooooo!!!!");
-        }
 
+            Intent intent = new Intent(this,Screen2.class);
+            startActivity(intent);
+
+        }
 
         return false;
     }

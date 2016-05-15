@@ -12,6 +12,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,16 +24,15 @@ import android.widget.Toast;
 
 import static br.com.mdi.br.quizxm.R.style.QuizXm;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
+    private GestureDetector detector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button botaoNext1 = (Button)findViewById(R.id.ButtonNext1);
-        botaoNext1.setOnClickListener(this);
+        this.detector = new GestureDetector(this);
 
         final Switch switch1 = (Switch)findViewById(R.id.switch1);
         final Switch switch2 = (Switch)findViewById(R.id.switch2);
@@ -97,10 +98,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Override
-    public void onClick(View v) {
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
 
-        Intent intent = new Intent(this,Screen2.class);
-        startActivity(intent);
+    @Override
+    public void onShowPress(MotionEvent e) {
 
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        if(this.detector.onTouchEvent(event)){
+            return true;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
+        if(Math.abs(e1.getY()-e2.getY())>250){
+            return false;
+        }
+
+
+        if(e1.getX()-e2.getX()>100 && Math.abs(velocityX)>200){
+
+            Intent intent = new Intent(this,Screen2.class);
+            startActivity(intent);
+        }
+        return false;
     }
 }
