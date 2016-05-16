@@ -20,13 +20,28 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import static br.com.mdi.br.quizxm.R.style.QuizXm;
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
     private GestureDetector detector;
+    private int statuspoint=0;
+
+    public  void setStatistics(int valor){
+        this.statuspoint+= valor;
+    }
+
+    public String getStatistics(){
+
+        return "Points: "+this.statuspoint;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +53,23 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         final Switch switch2 = (Switch)findViewById(R.id.switch2);
         final Switch switch3 = (Switch)findViewById(R.id.switch3);
         final Switch switch4 = (Switch)findViewById(R.id.switch4);
+        final TextView textview = (TextView)findViewById(R.id.txtPontos);
+        textview.setText("Points: " + this.statuspoint);
+
 
         switch1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                if (switch1.isChecked()){
+                   setStatistics(1);
                    switch1.setText("OK!");
-                }
-               else{
+                   textview.setText(getStatistics());
+
+                }else{
+                   setStatistics(-1);
                    switch1.setText(R.string.question1_r1);
+                   textview.setText(getStatistics());
                }
 
             }
@@ -58,11 +80,14 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             public void onClick(View v) {
 
                 if (switch2.isChecked()) {
+                    setStatistics(1);
                     switch2.setText("OK!");
-                } else {
+                    textview.setText(getStatistics());
+                }else{
+                    setStatistics(-1);
                     switch2.setText(R.string.question1_r2);
+                    textview.setText(getStatistics());
                 }
-
             }
         });
 
@@ -72,10 +97,13 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             public void onClick(View v) {
 
                 if (switch3.isChecked()){
+                    setStatistics(-1);
                     switch3.setText("WRONG!!");
-                }
-                else{
+                    textview.setText(getStatistics());
+                }else{
+                    setStatistics(1);
                     switch3.setText(R.string.question1_r3);
+                    textview.setText(getStatistics());
                 }
 
             }
@@ -86,10 +114,14 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             public void onClick(View v) {
 
                 if (switch4.isChecked()){
-                    switch4.setText("WRONG!");
-                }
-                else{
+                    setStatistics(-1);
+                   switch4.setText("WRONG!");
+                   textview.setText(getStatistics());
+
+                }else{
+                    setStatistics(1);
                     switch4.setText(R.string.question1_r4);
+                    textview.setText(getStatistics());
                 }
 
             }
@@ -118,9 +150,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
 
     @Override
-    public void onLongPress(MotionEvent e) {
-
-    }
+    public void onLongPress(MotionEvent e) {}
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
@@ -134,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 
         if(Math.abs(e1.getY()-e2.getY())>250){
+
             return false;
         }
 
@@ -141,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         if(e1.getX()-e2.getX()>100 && Math.abs(velocityX)>200){
 
             Intent intent = new Intent(this,Screen2.class);
+            intent.putExtra("statuspoint",statuspoint);
             startActivity(intent);
         }
         return false;

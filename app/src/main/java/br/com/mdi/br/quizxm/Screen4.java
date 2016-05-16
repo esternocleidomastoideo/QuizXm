@@ -10,31 +10,54 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
+import android.widget.TextView;
 
 public class Screen4 extends AppCompatActivity implements GestureDetector.OnGestureListener{
 
     private GestureDetector detector;
+    private int statuspoint=0;
+
+    public  void setStatistics(int valor){
+        this.statuspoint+= valor;
+    }
+
+    public String getStatistics(){
+
+        return "Points: "+this.statuspoint;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen4);
         Bundle bundle = getIntent().getExtras();
+
+        if(bundle.containsKey("statuspoint")) {
+            this.statuspoint=bundle.getInt("statuspoint");
+        }
         this.detector = new GestureDetector(this);
 
         final Switch switch1 = (Switch)findViewById(R.id.switch1);
         final Switch switch2 = (Switch)findViewById(R.id.switch2);
         final Switch switch3 = (Switch)findViewById(R.id.switch3);
         final Switch switch4 = (Switch)findViewById(R.id.switch4);
+        final TextView textview = (TextView)findViewById(R.id.txtPontos4);
+        textview.setText("Points:"+this.statuspoint);
 
         switch1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (switch1.isChecked()){
+                    setStatistics(-1);
+                    textview.setText(getStatistics());
                     switch1.setText("WRONG!");
                 }
                 else{
+                    setStatistics(1);
+
+                    textview.setText(getStatistics());
                     switch1.setText(R.string.question4_r1);
                 }
 
@@ -46,8 +69,14 @@ public class Screen4 extends AppCompatActivity implements GestureDetector.OnGest
             public void onClick(View v) {
 
                 if (switch2.isChecked()) {
+                    setStatistics(1);
+
+                    textview.setText(getStatistics());
                     switch2.setText("OK!");
                 } else {
+                    setStatistics(-1);
+
+                    textview.setText(getStatistics());
                     switch2.setText(R.string.question4_r2);
                 }
 
@@ -60,8 +89,13 @@ public class Screen4 extends AppCompatActivity implements GestureDetector.OnGest
             public void onClick(View v) {
 
                 if (switch3.isChecked()) {
+                    setStatistics(-1);
+                    textview.setText(getStatistics());
                     switch3.setText("WRONG!!");
                 } else {
+                    setStatistics(1);
+
+                    textview.setText(getStatistics());
                     switch3.setText(R.string.question4_r3);
                 }
 
@@ -73,8 +107,14 @@ public class Screen4 extends AppCompatActivity implements GestureDetector.OnGest
             public void onClick(View v) {
 
                 if (switch4.isChecked()) {
+                    setStatistics(1);
+
+                    textview.setText(getStatistics());
                     switch4.setText("OK!");
                 } else {
+                    setStatistics(-1);
+
+                    textview.setText(getStatistics());
                     switch4.setText(R.string.question4_r4);
                 }
             }
@@ -120,6 +160,7 @@ public class Screen4 extends AppCompatActivity implements GestureDetector.OnGest
         if(e1.getX()-e2.getX()>100 && Math.abs(velocityX)>200){
 
             Intent intent = new Intent(this,Screen5.class);
+            intent.putExtra("statuspoint",statuspoint);
             startActivity(intent);
         }
         return false;
