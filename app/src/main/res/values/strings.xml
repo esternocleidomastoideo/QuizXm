@@ -42,12 +42,43 @@ balancing and failover work correctly?</string>
     <string name="question6_r3">It starts the managed server named server1 whose Node Manager is running at 192.168.1.102.8001</string>
     <string name="question6_r4">It starts the Managed Server named server1 whose Administration Server is running at 192.168.1.102:8001.</string>
 
+
+    <string name="question7">7.An application requires a JDBC data source, which you create in the domain. You name it but the administrator allot another domain name the same data source DatasourceB. Without modifying either domain, which is the best method to ensure that the application deploys successfully in both?</string>
+    <string name="question7_r1">Create a separate application archive to use with each domain.</string>
+    <string name="question7_r2">Create a separate deployment plan file to use with each domain.</string>
+    <string name="question7_r3">Create and register a custom deployment listener.</string>
+    <string name="question7_r4">Modify the application code to determine the current domain.</string>
+
+    <string name="question8">8.Identify three options for Keystores in a servers configuration.</string>
+    <string name="question8_r1">Demo Identity and Demo Trust</string>
+    <string name="question8_r2">Demo Identity and Java Standard Trust</string>
+    <string name="question8_r3">Custom Identity and Custom Trustt</string>
+    <string name="question8_r4">Custom Identity and Command Line Trust</string>
+
+
+    <string name="question9">9.When installing Oracle Weblogic Server 11g with the graphical installer, which three statements are true?</string>
+    <string name="question9_r1">You must choose either a typical or a custom installation.</string>
+    <string name="question9_r2">You install under Microsoft Windows because the graphical installer is available only for Window</string>
+    <string name="question9_r3">You may create a new middleware home directory or choose an existing one.</string>
+    <string name="question9_r4">You may install a JDK or choose one that was previously installed.</string>
+
+    <string name="question10">10.Each domain has a directory called servers that contains subdirectories for each server in the domain. Your domain has a managed server named managed1. When will the managed1 directory be created?</string>
+    <string name="question10_r1">When the managed1 server is defined in the configuration Wizard</string>
+    <string name="question10_r2">When the domain is created</string>
+    <string name="question10_r3">When the administration server comes up for the first time</string>
+    <string name="question10_r4">When the managed1 server1 comes for the first time</string>
+
+
     <string name="title_activity_activity_main">QuizXm 1Z0-102</string>
     <string name="title_activity_screen2">QuizXm 1Z0-102</string>
     <string name="title_activity_screen3">QuizXm 1Z0-102</string>
     <string name="title_activity_screen4">QuizXm 1Z0-102</string>
     <string name="title_activity_screen5">QuizXm 1Z0-102</string>
     <string name="title_activity_screen6">QuizXm 1Z0-102</string>
+    <string name="title_activity_screen7">QuizXm 1Z0-102</string>
+    <string name="title_activity_screen8">QuizXm 1Z0-102</string>
+    <string name="title_activity_screen9">QuizXm 1Z0-102</string>
+    <string name="title_activity_screen10">QuizXm 1Z0-102</string>
 
 
 </resources>

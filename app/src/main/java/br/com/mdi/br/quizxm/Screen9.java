@@ -16,12 +16,13 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class Screen6 extends AppCompatActivity implements  GestureDetector.OnGestureListener{
+public class Screen9 extends AppCompatActivity implements GestureDetector.OnGestureListener{
 
     private GestureDetector detector;
     private int statuspoint=0;
 
     public  void setStatistics(int valor){
+
         this.statuspoint+= valor;
     }
 
@@ -32,10 +33,9 @@ public class Screen6 extends AppCompatActivity implements  GestureDetector.OnGes
 
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen6);
+        setContentView(R.layout.activity_screen9);
         Bundle bundle = getIntent().getExtras();
 
         if(bundle.containsKey("statuspoint")) {
@@ -48,7 +48,7 @@ public class Screen6 extends AppCompatActivity implements  GestureDetector.OnGes
         final Switch switch2 = (Switch)findViewById(R.id.switch2);
         final Switch switch3 = (Switch)findViewById(R.id.switch3);
         final Switch switch4 = (Switch)findViewById(R.id.switch4);
-        final TextView textview = (TextView)findViewById(R.id.txtPontos6);
+        final TextView textview = (TextView)findViewById(R.id.txtPontos9);
         textview.setText("Points:"+this.statuspoint);
 
         final GestureDetector gestureDetector = null;
@@ -58,14 +58,14 @@ public class Screen6 extends AppCompatActivity implements  GestureDetector.OnGes
             public void onClick(View v) {
 
                 if (switch1.isChecked()){
-                    setStatistics(-1);
-                    textview.setText(getStatistics());
-                    switch1.setText("WRONG!");
-                }
-                else{
                     setStatistics(1);
                     textview.setText(getStatistics());
-                    switch1.setText(R.string.question6_r1);
+                    switch1.setText("OK!");
+                }
+                else{
+                    setStatistics(-1);
+                    textview.setText(getStatistics());
+                    switch1.setText(R.string.question9_r1);
                 }
 
             }
@@ -82,7 +82,7 @@ public class Screen6 extends AppCompatActivity implements  GestureDetector.OnGes
                 } else {
                     setStatistics(1);
                     textview.setText(getStatistics());
-                    switch2.setText(R.string.question6_r2);
+                    switch2.setText(R.string.question9_r2);
                 }
 
             }
@@ -94,13 +94,13 @@ public class Screen6 extends AppCompatActivity implements  GestureDetector.OnGes
             public void onClick(View v) {
 
                 if (switch3.isChecked()) {
+                    setStatistics(1);
+                    textview.setText(getStatistics());
+                    switch3.setText("OK!");
+                } else {
                     setStatistics(-1);
                     textview.setText(getStatistics());
-                    switch3.setText("WRONG!");
-                } else {
-                    setStatistics(+1);
-                    textview.setText(getStatistics());
-                    switch3.setText(R.string.question6_r3);
+                    switch3.setText(R.string.question9_r3);
                 }
 
             }
@@ -118,14 +118,13 @@ public class Screen6 extends AppCompatActivity implements  GestureDetector.OnGes
                 else{
                     setStatistics(-1);
                     textview.setText(getStatistics());
-                    switch4.setText(R.string.question6_r4);
+                    switch4.setText(R.string.question9_r4);
                 }
 
             }
         });
 
     }
-
 
 
     @Override
@@ -169,7 +168,7 @@ public class Screen6 extends AppCompatActivity implements  GestureDetector.OnGes
         }
         if(e1.getX()-e2.getX()>100 && Math.abs(velocityX)>200){
 
-            Intent intent = new Intent(this,Screen7.class);
+            Intent intent = new Intent(this,Screen10.class);
             intent.putExtra("statuspoint",statuspoint);
             startActivity(intent);
 
