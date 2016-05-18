@@ -1,9 +1,8 @@
 <resources>
 
-    <style name="QuizXm" parent="@android:style/TextAppearance.Small">
-        <item name="android:textColor">#52F00E</item>
-        <item name="android:layout_height">1dp</item>
-    </style>
+    <style name="QuizXm" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowFullscreen">true</item>
+        </style>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
