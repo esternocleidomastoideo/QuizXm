@@ -76,11 +76,11 @@ public class Screen10 extends AppCompatActivity implements  GestureDetector.OnGe
             public void onClick(View v) {
 
                 if (switch2.isChecked()) {
-                    setStatistics(1);
-                    textview.setText(getStatistics());
-                    switch2.setText("OK!");
-                } else {
                     setStatistics(-1);
+                    textview.setText(getStatistics());
+                    switch2.setText("WRONG!");
+                } else {
+                    setStatistics(1);
                     textview.setText(getStatistics());
                     switch2.setText(R.string.question10_r2);
                 }
@@ -98,7 +98,7 @@ public class Screen10 extends AppCompatActivity implements  GestureDetector.OnGe
                     textview.setText(getStatistics());
                     switch3.setText("WRONG!");
                 } else {
-                    setStatistics(+1);
+                    setStatistics(1);
                     textview.setText(getStatistics());
                     switch3.setText(R.string.question10_r3);
                 }
@@ -111,12 +111,12 @@ public class Screen10 extends AppCompatActivity implements  GestureDetector.OnGe
             public void onClick(View v) {
 
                 if (switch4.isChecked()){
-                    setStatistics(-1);
+                    setStatistics(1);
                     textview.setText(getStatistics());
-                    switch4.setText("WRONG!");
+                    switch4.setText("OK!");
                 }
                 else{
-                    setStatistics(+1);
+                    setStatistics(-1);
                     textview.setText(getStatistics());
                     switch4.setText(R.string.question10_r4);
                 }
@@ -155,6 +155,7 @@ public class Screen10 extends AppCompatActivity implements  GestureDetector.OnGe
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
+
         if(this.detector.onTouchEvent(event)){
             return true;
         }
@@ -169,7 +170,7 @@ public class Screen10 extends AppCompatActivity implements  GestureDetector.OnGe
         }
         if(e1.getX()-e2.getX()>100 && Math.abs(velocityX)>200){
 
-            Intent intent = new Intent(this,Screen10.class);
+            Intent intent = new Intent(this,Screen11.class);
             intent.putExtra("statuspoint",statuspoint);
             startActivity(intent);
 

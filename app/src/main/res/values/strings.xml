@@ -81,6 +81,7 @@ balancing and failover work correctly?</string>
     <string name="title_activity_screen10">QuizXm 1Z0-102</string>
     <string name="title_activity_splash">Splash</string>
     <string name="xlogo">xlogo</string>
+    <string name="title_activity_screen11">Screen11</string>
 
 
 </resources>

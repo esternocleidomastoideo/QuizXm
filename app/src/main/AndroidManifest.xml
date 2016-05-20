@@ -18,12 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_activity_main"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".Screen2"
             android:label="@string/title_activity_screen2"
@@ -60,7 +58,9 @@
             android:name=".Screen10"
             android:label="@string/title_activity_screen10"
             android:theme="@style/AppTheme" />
-
+        <activity
+            android:name=".Screen11"
+            android:label="@string/title_activity_screen11"></activity>
     </application>
 
 </manifest>
